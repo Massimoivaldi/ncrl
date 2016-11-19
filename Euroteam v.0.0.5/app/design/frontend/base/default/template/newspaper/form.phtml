@@ -71,6 +71,10 @@ $decuius = $this->getDecuius();
                 <div class="form-group">
                     <label for="defunto">Ricerca Nome del Defunto</label>
                     <select id="defunto" class="form-control">
+                        <option value="0"><?php echo $this->__('Scegli il morto');?></option>
+                        <?php foreach ($decuius as $decuiu) : ?>
+                                <?php echo "<option value = '" . $decuiu->getId() . "'>" . $this->escapeHtml($decuiu->getName()) . " " .$this->escapeHtml($decuiu->getSurname()). "</option>"; ?>
+                            <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="row">

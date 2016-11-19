@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Euroteam_Ncrl>
+            <name>Euroteam Newspaper</name>        	
+            <version>0.0.5</version>
+            <active>true</active>
+            <codePool>local</codePool>            
+        </Euroteam_Ncrl>
+    </modules>
+</config>

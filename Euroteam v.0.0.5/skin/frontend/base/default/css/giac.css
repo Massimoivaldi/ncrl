@@ -1,0 +1,87 @@
+.preview {
+    width: 100%;
+    max-width: 290px;
+    padding: 20px;
+    margin: 20px 0;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+.preview.finale {
+    min-height: 320px;
+}
+
+.row.giac {
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 40px;
+}
+.titoletto {
+	display: inline-block;
+    width: 100%;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+p#ante-citazione, p#riep-citazione {
+    font-style: italic;
+    /* text-align: right; */
+    padding-left: 25%;
+}
+/*p#ante-citazione:before {
+    content: '"';
+}
+p#ante-citazione:after {
+    content: '"';
+}*/
+p#ante-firmacitazione, p#riep-firmacitazione {
+    text-align: right;
+	font-size: 0.8em;
+    margin-top: -5px;
+}
+p#ante-testoiniziale, p#riep-testoiniziale {
+    text-indent: 10px;
+}
+p#ante-onorificienza, p#riep-onorificienza {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+	margin-bottom: 5px;
+    margin-top: 15px;
+}
+p#ante-nomecomdefunto, p#riep-nomecomdefunto {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4em;
+	margin-bottom: 8px;
+}
+p#ante-vedovanza, p#riep-vedovanza {
+    text-align: center;
+    font-weight: bold;
+	margin-bottom: 15px;
+}
+p#ante-dianni, p#riep-dianni {
+    text-align: center;
+}
+p#ante-testoinserzione, p#riep-testoinserzione {
+    text-align: justify;
+}
+p#ante-listanomi, p#riep-listanomi {
+    padding-left: 10px;
+}
+/*p#ante-luogodata:before {
+    content: "- ";
+}*/
+
+label.fondinoverde {
+    width: 100%;
+    max-width: 290px;
+    color: #fff;
+    background-color: #43bfb7;
+    padding: 3px 8px;
+    margin-bottom: -10px;
+}
+
+li.next.disabled, li.previous.disabled {
+    display: none;
+}

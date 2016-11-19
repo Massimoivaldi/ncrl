@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<config>     
+    <frontend>
+        <routers>
+            <newspaper>
+                <use>standard</use>
+                <args>
+                    <module>Euroteam_Ncrl</module>
+                    <frontName>ncrl</frontName>
+                </args>
+            </newspaper>
+        </routers>
+        <layout>
+            <updates>
+                <newspaper>
+                    <file>newspaper.xml</file>
+                </newspaper>
+            </updates>
+        </layout>
+    </frontend>   
+    <global>
+        <models>
+            <newspaper>                                                   
+                <class>Euroteam_Ncrl_Model</class>
+                <resourceModel>newspaper_resource</resourceModel>
+            </newspaper>
+            <newspaper_resource>
+                <class>Euroteam_Ncrl_Model_Resource</class>                                
+                <entities>
+                    <newspaper>
+                        <table>newspaper</table>
+                    </newspaper>
+                    <release>
+                        <table>newspaper_release</table>
+                    </release>
+                    <section>
+                        <table>newspaper_release_section</table>
+                    </section>
+                    <field>
+                        <table>ncrl_field</table>
+                    </field>
+                    <model>
+                        <table>ncrl_model</table>
+                    </model>
+                    <modelstyle>
+                        <table>ncrl_model_style</table>
+                    </modelstyle>
+                    <modelfield>
+                        <table>ncrl_model_field</table>
+                    </modelfield>
+                    <sectionmodel>
+                        <table>newspaper_release_section_model</table>
+                    </sectionmodel>                    
+                    <decuius>
+                        <table>ncrl_decuius</table>
+                    </decuius>
+                    <relationship>
+                        <table>ncrl_relationship</table>
+                    </relationship>
+                </entities>
+            </newspaper_resource>
+        </models>
+        <resources>
+            <newspaper_setup>
+                <setup>
+                    <module>Euroteam_Ncrl</module>
+                    <class>Euroteam_Ncrl_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </newspaper_setup>
+            <newspaper_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </newspaper_write>
+            <newspaper_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </newspaper_read>
+        </resources>
+        <blocks>
+            <newspaper>
+                <class>Euroteam_Ncrl_Block</class>
+            </newspaper>
+        </blocks>
+        <helpers>
+            <newspaper>
+                <class>Euroteam_Ncrl_Helper</class>
+            </newspaper>  
+        </helpers>            
+    </global>    
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <newspaper before="Mage_Adminhtml">Euroteam_Ncrl_Adminhtml</newspaper>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <translations>
+                    <files>
+                        <default>Euroteam_Ncrl.csv</default>
+                    </files>
+                </translations>
+            </modules>
+        </translate>
+        <menu>
+            <euroteam module="newspaper">
+                <title>Euroteam</title>
+                <sort_order>100</sort_order>
+                <children>
+                    <field translate="title" module="newspaper">
+                        <title>Fields</title>
+                        <sort_order>10</sort_order>
+                        <action>adminhtml/ncrl_field/index</action>
+                    </field>
+                    <model translate="title" module="newspaper">
+                        <title>Models</title>
+                        <sort_order>11</sort_order>
+                        <action>adminhtml/ncrl_model/index</action>
+                    </model>
+                    <modelstyle translate="title" module="newspaper">
+                        <title>Model Styles</title>
+                        <sort_order>12</sort_order>
+                        <action>adminhtml/ncrl_modelstyle/index</action>
+                    </modelstyle>
+                    <modelfield translate="title" module="newspaper">
+                        <title>Models-Fields</title>
+                        <sort_order>13</sort_order>
+                        <action>adminhtml/ncrl_modelfield/index</action>
+                    </modelfield>
+                    <newspaper translate="title" module="newspaper">
+                        <title>Newspaper List</title>
+                        <sort_order>20</sort_order>
+                        <action>adminhtml/ncrl_newspaper/index</action>
+                    </newspaper>
+                    <release translate="title" module="newspaper">
+                        <title>Newspaper Release</title>
+                        <sort_order>30</sort_order>
+                        <action>adminhtml/ncrl_release/index</action>
+                    </release>
+                    <section translate="title" module="newspaper">
+                        <title>Newspaper Section</title>
+                        <sort_order>40</sort_order>
+                        <action>adminhtml/ncrl_section/index</action>
+                    </section>
+                    <sectionmodel translate="title" module="newspaper">
+                        <title>Release Section Model</title>
+                        <sort_order>50</sort_order>
+                        <action>adminhtml/ncrl_sectionmodel/index</action>
+                    </sectionmodel>
+                    <decuius translate="title" module="newspaper">
+                        <title>Decuius</title>
+                        <sort_order>60</sort_order>
+                        <action>adminhtml/ncrl_decuius/index</action>
+                    </decuius>
+                    <relationship translate="title" module="newspaper">
+                        <title>Relationship</title>
+                        <sort_order>70</sort_order>
+                        <action>adminhtml/ncrl_relationship/index</action>
+                    </relationship>
+                </children>
+            </euroteam>
+        </menu>       
+    </adminhtml>
+</config>

@@ -1,0 +1,68 @@
+Euroteam,Euroteam
+Add New,Aggiungi Nuovo
+Add Item,Aggiungi Item
+Manage Fields,Gestisci Fields
+Manage Models,Gestisci Models
+Manage Models - Fields,Gestisci Models - Fields
+Manage Newspaper List,Gestisci Newspaper List
+Manage Newspaper Release,Gestisci Newspaper Release
+Manage Newspaper Section,Gestisci Newspaper Section
+Manage Newspaper Release Section Model,Gestisci Newspaper Release Section Model
+Edit,Edita
+ID,ID
+Name,Nome
+Item Detail,Item Dettagli
+Field Detail,Field Dettagli
+Model Detail,Model Dettagli
+Release Detail,Release Dettagli
+Decuius Detail,Decuius Dettagli
+Relationship Detail,Relationship Dettagli
+Main,Main
+Back,Indietro
+Reset,Reset
+Delete,Cancella
+Save,Salva
+Save And Continue Edit,Sala E Continua a Editare
+Item has been saved,Item e stato salvato
+Item has been successfully deleted,Item e stato cancellato
+Page,Pagina
+of %s pages,di %s pagine
+View,Vedi
+per page,per pagina
+Total %d records found,Totale %d records trovati
+No records found.,No records trovati.
+Reset Filter,Reset Filtro
+Search,Cerca
+Action,Azione
+Field,Field
+Fields,Fields
+Model,Model
+Models,Models
+Models-Fields,Models-Fields
+Newspaper List,Newspaper List
+Newspaper Release,Newspaper Release
+Newspaper Section,Newspaper Section
+Release Section Model,Release Section Model
+Available,Available
+Style,Style
+Mandatory,Mandatory
+Weight,Weight
+Minimum Weight,Minimum Weight
+Price,Price
+Are you sure you want to do this?,Are you sure you want to do this?
+Status,Status
+Active,Active
+Inactive,Inactive
+Newspaper,Newspaper
+Frequency,Frequency
+Time Limit,Time Limit
+Section,Section
+Release,Release
+Release Section,Release Section
+Decuius,Decuius
+Relationship,Relationship
+Surname,Surname
+Date Created,Date Created
+From,From
+To,To
+Rank,Rank

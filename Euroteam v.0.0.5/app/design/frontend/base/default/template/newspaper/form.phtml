@@ -74,7 +74,7 @@ $decuius = $this->getDecuius();
                         <option value="0"><?php echo $this->__('Scegli il morto');?></option>
                         <?php foreach ($decuius as $decuiu) : ?>
                                 <?php echo "<option value = '" . $decuiu->getId() . "'>" . $this->escapeHtml($decuiu->getName()) . " " .$this->escapeHtml($decuiu->getSurname()). "</option>"; ?>
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="row">
@@ -337,7 +337,7 @@ $decuius = $this->getDecuius();
     
     $j(styleImageItem).change(loadFieldsByStyle);
     
-    $j("#tab2 #defunto").change(function() {
+    /*$j("#tab2 #defunto").change(function() {
       var prefillText = $j("#tab2 #defunto").find(":selected").text();
       var prefillNames = prefillText.split(" ");
       var firstName = "";
@@ -353,7 +353,7 @@ $decuius = $this->getDecuius();
       $j("#tab2 #nomedef").val(firstName);
       $j("#tab2 #cognomedef").val(lastName);
       
-    });
+    });*/
     
     $j(function() {
         loadRelease();

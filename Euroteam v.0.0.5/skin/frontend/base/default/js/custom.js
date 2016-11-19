@@ -17,7 +17,7 @@ $j(document).ready(function () {
 
 
     
-    fillselect($j('#defunto'), defunto);
+    //fillselect($j('#defunto'), defunto);
 
     $j("#tipoannunciosfondo1").change(function () {
         var sfondoid = $j('#tipoannunciosfondo1').is(":checked");

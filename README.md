@@ -22,3 +22,7 @@ bumbone
  admin@magento ncrl/Euroteam v.0.0.5$ cp -R skin /var/www/magento/bonobo/
 
  admin@magento magento/bonobo$ sudo rm -rf var/cache/ var/session/
+
+
+
+provagiac

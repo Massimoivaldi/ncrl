@@ -3,7 +3,7 @@
     <modules>
         <Euroteam_Ncrl>
             <name>Euroteam Newspaper</name>        	
-            <version>0.0.5</version>
+            <version>0.0.6</version>
             <active>true</active>
             <codePool>local</codePool>            
         </Euroteam_Ncrl>

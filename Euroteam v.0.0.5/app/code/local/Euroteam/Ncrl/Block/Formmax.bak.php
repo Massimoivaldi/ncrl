@@ -19,4 +19,9 @@ class Euroteam_Ncrl_Block_Form extends Mage_Core_Block_Template
         $collection = Mage::getModel('newspaper/relationship')->getCollection();                
         return $collection;
     }
+
+    public function getDecuius() {
+        $collection = Mage::getModel('newspaper/decuius')->getCollection();                
+        return $collection;
+    }
 }

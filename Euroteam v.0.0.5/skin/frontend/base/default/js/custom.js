@@ -17,7 +17,7 @@ $j(document).ready(function () {
 
 
     
-    //fillselect($j('#defunto'), defunto);
+    fillselect($j('#defunto'), defunto);
 
     $j("#tipoannunciosfondo1").change(function () {
         var sfondoid = $j('#tipoannunciosfondo1').is(":checked");
@@ -68,12 +68,28 @@ $j(document).ready(function () {
             $j(".preview.finale").css("background-color", "#dddddd")
         }
     })
-
-    $j('#rootwizard').bootstrapWizard({onNext: function (tab, navigation, index) {
-            console.log(index);
+    
+    
+    var checkValidation = function(element) {        
+        var tabelements = $j(element).find(':input');
+        var passed = true;
+        tabelements.each(function() {                           
+            if(Validation.validate($(this.id)) === false) {
+                passed = false;
+            }
+        });
+        return passed;
+    }
+    
+    $j('#rootwizard').bootstrapWizard({onNext: function (tab, navigation, index) {            
+            
+            if(checkValidation("#tab"+index) === false) {
+                return false;
+            }
+            
             switch(index) {
                 case 1:
-                    var selectedDate = $j("#tab1 #date").val();                    
+                    var selectedDate = $j("#tab1 #date").val();
                     $j("#resumeWrapperValue\\:date").html(selectedDate);
                     
                     var selectedNewspaper = $j("#tab1 #testata").val();

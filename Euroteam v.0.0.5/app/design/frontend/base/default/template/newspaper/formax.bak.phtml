@@ -4,15 +4,15 @@
  */
 $newspapers = $this->getNewspapers();
 $relationships = $this->getRelationships();
+$decuius = $this->getDecuius();
 ?>
-<form action="<?php echo Mage::getUrl('newspaper/checkout_cart/addToCart');?>" method="post" enctype="multipart/form-data" id="ads-form">
 <section id="wizard">
     <div id="rootwizard">
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
                     <ul>
-                        <li><a href="#tab1" data-toggle="tab">Dove Pubblicare</a></li>
+                        <li><a href="#tab1" data-toggle="tab">Pippo Pubblicare</a></li>
                         <li><a href="#tab2" data-toggle="tab">Dati del defunto</a></li>
                         <li><a href="#tab3" data-toggle="tab">Tipo di Annuncio</a></li>
                         <li><a href="#tab4" data-toggle="tab">Compilazione Annuncio</a></li>
@@ -31,10 +31,10 @@ $relationships = $this->getRelationships();
         </div>
         <div class="tab-content">
             <div class="tab-pane" id="tab1">
-                
+                <form>
                     <div class="form-group">
                         <label for="testata">Scegli Testata</label>
-                        <select id="testata" name="newspaper" class="form-control validate-select">
+                        <select id="testata" class="form-control">
                             <option value=""><?php echo $this->__('Please select newspaper');?></option>
                             <?php foreach ($newspapers as $newspaper) : ?>
                                 <?php echo "<option value = '" . $newspaper->getId() . "'>" . $this->escapeHtml($newspaper->getName()) . "</option>"; ?>
@@ -43,24 +43,26 @@ $relationships = $this->getRelationships();
                     </div>
                     <div class="form-group">
                         <label for="edizione">Scegli Edizione</label>
-                        <select id="edizione" name="release" class="form-control validate-select">
+                        <select id="edizione" class="form-control">
+
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="rubrica">Scegli Rubrica</label>
-                        <select id="rubrica" name="section" class="form-control validate-select">
+                        <select id="rubrica" class="form-control">
 
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="data">Scegli Data</label>
-                        <input type="text" class="form-control required-entry" id="date"  name="date" value="11-09-2001">
+                        <input type="text" class="form-control" id="date"  name="data" value="11-09-2001">
                     </div>
+
             </div>
             <div class="tab-pane" id="tab2">
                 <div class="form-group">
                     <label for="gradopar">Grado di parentela</label>
-                    <select id="gradopar" name="relationship" class="form-control validate-select">
+                    <select id="gradopar" class="form-control">
                         <?php foreach ($relationships as $relationship) : ?>
                            <?php echo "<option value = '" . $newspaper->getId() . "'>" . $this->escapeHtml($newspaper->getName()) . "</option>"; ?>
                         <?php endforeach; ?>
@@ -68,20 +70,24 @@ $relationships = $this->getRelationships();
                 </div>
                 <div class="form-group">
                     <label for="defunto">Ricerca Nome del Defunto</label>
-                    <select id="defunto" name="prefill_name" class="form-control validate-select">
+                    <select id="defunto" class="form-control">
+                        <option value=""></option>
+                        <?php foreach ($decuius as $decuiu) : ?>
+                                <?php echo "<option value = '" . $decuiu->getId() . "'>" . $this->escapeHtml($decuiu->getName()) . " " .$this->escapeHtml($decuiu->getSurname()). "</option>"; ?>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nomedef">Nome del Defunto</label>
-                            <input type="text" class="form-control required-entry" id="nomedef" name="first_name" >
+                            <input type="text" class="form-control" id="nomedef" name="nomedef" >
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="cognomedef">Cognome del Defunto</label>
-                            <input type="text" class="form-control" id="cognomedef"  name="last_name" >
+                            <input type="text" class="form-control" id="cognomedef"  name="cognomedef" >
                         </div>
                     </div>
                 </div>
@@ -89,7 +95,7 @@ $relationships = $this->getRelationships();
             <div class="tab-pane" id="tab3">
                 <div class="form-group">
                     <label for="tipoannuncio">Tipo di Annuncio</label>
-                    <select id="tipoannuncio" name="section_model" class="form-control validate-select"> 
+                    <select id="tipoannuncio" class="form-control">
                     </select>
                 </div>
                 <div  id="style-image" class="row giac">
@@ -127,14 +133,14 @@ $relationships = $this->getRelationships();
                         </div>
                         <div id="total-wrapper"> 
                         </div>
+                       
                         <h3>Prezzo totale: <b><span id="prezzototale">0</span></b> &euro;</h3>
-                        <button id="bottonefinale" type="submit" class="btn btn-default" style="margin-top:25px;">Conferma e Prosegui</button>
-                        
+                        <button id="bottonefinale" type="button" class="btn btn-default" style="margin-top:25px;">Conferma e Prosegui</button>
+                        </form>
                     </div>
                 </div>
-                
             </div>
-            
+
             <div class="tab-pane" id="tab6">
                 <div class="row">
                     <div class="col-md-12">
@@ -166,7 +172,6 @@ $relationships = $this->getRelationships();
             </ul>
         </div>
     </div>
-    </form>
 </section>
 
 <br /><br />
@@ -174,7 +179,7 @@ $relationships = $this->getRelationships();
 
 <script type="text/javascript">
 //<![CDATA[
-    var adsForm = new VarienForm('ads-form');
+
     var newspaperElement = "#testata";
     var releaseElement = "#edizione";
     var sectionElement = "#rubrica";
@@ -301,11 +306,7 @@ $relationships = $this->getRelationships();
     
     var countWords = function(element) {
         elementId = $j(element).data('id');
-        elementPrice = parseFloat($j(element).data('price'));
-        elementWeight = parseFloat($j(element).data('weight'));
-        elementMinWeight = parseFloat($j(element).data('minweight'));
-        
-        
+        elementPrice = $j(element).data('price');
         
         var fieldvalue = $j(element).val();
         fieldvalue = fieldvalue.replace(/ +(?= )/g,'');
@@ -316,13 +317,7 @@ $relationships = $this->getRelationships();
             numwords = 0;
         }
         
-        var totalWeight = numwords * elementWeight;
-        if(totalWeight  < elementMinWeight) {
-            totalWeight = elementMinWeight;
-        }
-        
-        var finalprice = totalWeight * elementPrice;
-               
+        var finalprice = numwords * elementPrice;
         $j("#tab5 #finalFieldWords\\:"+elementId).html(numwords);
         $j("#tab5 #finalFieldPrice\\:"+elementId).html(finalprice.toFixed(2));        
         if(numwords == 0) {

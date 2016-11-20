@@ -118,7 +118,7 @@ class Euroteam_Ncrl_FormController extends Mage_Core_Controller_Front_Action
             $required = $modelField->getMandatory() == 1 ? "required" : "";
             $fields .= '<div class="form-group">
                 <label for="modelField:'.$modelField->getId().'">'. $modelField->getFieldName() .'</label>
-                    <textarea data-price="'.$modelField->getPrice().'" data-id='.$modelField->getId().' id="modelField:'.$modelField->getId().'" class="modelField form-control '.$mandatory.'" rows="3" name="modelField['.$modelField->getId().']" '.$required.'></textarea>
+                    <textarea data-price="'.$modelField->getPrice().'" data-weight="'.$modelField->getWeight().'" data-minweight="'.$modelField->getMinimumWeight().'"  data-id='.$modelField->getId().' id="modelField:'.$modelField->getId().'" class="modelField form-control '.$mandatory.'" rows="3" name="modelField['.$modelField->getId().']" '.$required.'></textarea>
                 </div>';
             $style = trim(preg_replace('/\s\s+/', ' ', $modelField->getStyle()));
             $preview .= "<p id='modelFieldPreview:". $modelField->getId() ."' style='$style'></p>";            

@@ -124,7 +124,7 @@ class Euroteam_Ncrl_FormController extends Mage_Core_Controller_Front_Action
             $preview .= "<p id='modelFieldPreview:". $modelField->getId() ."' style='$style'></p>";            
             $finalPreview .= "<p id='modelFieldFinalPreview:". $modelField->getId() ."' style='$style'></p>";
             
-            $finalFields .= '<p id="finalFieldWrapper:'.$modelField->getId().'" style="display:none;">Words count for <strong>'.$modelField->getFieldName().'</strong>: <b><span class="finalFieldWords" id="finalFieldWords:'.$modelField->getId().'">0</span></b>, prezzo: <b><span class="finalFieldPrice" id="finalFieldPrice:'.$modelField->getId().'">0</span></b> &euro;</p>';
+            $finalFields .= '<p id="finalFieldWrapper:'.$modelField->getId().'" style="display:none;">N. Parole in <strong>'.$modelField->getFieldName().'</strong>: <b><span class="finalFieldWords" id="finalFieldWords:'.$modelField->getId().'">0</span></b>, prezzo: <b><span class="finalFieldPrice" id="finalFieldPrice:'.$modelField->getId().'">0</span></b> &euro;</p>';
             
         }
         

@@ -54,7 +54,7 @@ $relationships = $this->getRelationships();
                     </div>
                     <div class="form-group">
                         <label for="data">Scegli Data</label>
-                        <input type="text" class="form-control required-entry" id="date"  name="date" value="11-09-2001">
+                        <input type="text" class="form-control required-entry" id="date"  name="date" value="21-11-2016">
                     </div>
             </div>
             <div class="tab-pane" id="tab2">
@@ -62,13 +62,17 @@ $relationships = $this->getRelationships();
                     <label for="gradopar">Grado di parentela</label>
                     <select id="gradopar" name="relationship" class="form-control validate-select">
                         <?php foreach ($relationships as $relationship) : ?>
-                           <?php echo "<option value = '" . $newspaper->getId() . "'>" . $this->escapeHtml($newspaper->getName()) . "</option>"; ?>
+                           <?php echo "<option value = '" . $relationship->getId() . "'>" . $this->escapeHtml($relationship->getName()) . "</option>"; ?>
                         <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="defunto">Ricerca Nome del Defunto</label>
                     <select id="defunto" name="prefill_name" class="form-control validate-select">
+                        <option value=""></option>
+                        <?php foreach ($decuius as $decuiu) : ?>
+                                <?php echo "<option value = '" . $decuiu->getId() . "'>" . $this->escapeHtml($decuiu->getName()) . " " .$this->escapeHtml($decuiu->getSurname()). "</option>"; ?>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="row">

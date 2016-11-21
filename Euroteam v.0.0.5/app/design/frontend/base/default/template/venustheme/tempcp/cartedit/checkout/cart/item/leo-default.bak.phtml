@@ -59,9 +59,9 @@ if(!$helper || !is_object($helper)) {
         
         <?php if($adsInfo) : ?>
         <p>
-            <span>Defunto: <strong>: <?php echo $adsInfo['first_name']. " ". $adsInfo['last_name']; ?></strong></span><br />
-            <span><?php echo $this->__("Inserzione su");?> : <strong><?php echo $adsInfo['newspaper_text'] ?>, <?php echo $adsInfo['release_text']; ?>, <?php echo $adsInfo['section_text'] ?>,  <?php echo date("d F Y", strtotime($adsInfo['date']));?></strong></span><br />
-            <span><strong>Totale parole: <?php echo $this->__('%s parole', $adsInfo['total_words']); ?></strong></span><br />
+            <span><strong><?php echo $adsInfo['relationship_text']?>: <?php echo $adsInfo['first_name']. " ". $adsInfo['last_name']; ?></strong></span><br />
+            <span><?php echo $this->__("Newspaper");?> : <strong><?php echo $adsInfo['newspaper_text'] ?>, <?php echo $adsInfo['release_text']; ?>, <?php echo $adsInfo['section_text'] ?>,  <?php echo date("d F Y", strtotime($adsInfo['date']));?></strong></span><br />
+            <span><strong><?php echo $this->__('%s fields', $adsInfo['total_fields']); ?>, <?php echo $this->__('%s words', $adsInfo['total_words']); ?></strong></span><br />
         </p>
         <?php endif;?>
         <?php if ($_options = $this->getOptionList()):?>

@@ -4,6 +4,7 @@
  */
 $newspapers = $this->getNewspapers();
 $relationships = $this->getRelationships();
+$decuius = $this->getDecuius();
 ?>
 <form action="<?php echo Mage::getUrl('newspaper/checkout_cart/addToCart');?>" method="post" enctype="multipart/form-data" id="ads-form">
 <section id="wizard">
@@ -35,7 +36,7 @@ $relationships = $this->getRelationships();
                     <div class="form-group">
                         <label for="testata">Scegli Testata</label>
                         <select id="testata" name="newspaper" class="form-control validate-select">
-                            <option value=""><?php echo $this->__('Please select newspaper');?></option>
+                            <option value=""><?php echo $this->__('Scegli Testata');?></option>
                             <?php foreach ($newspapers as $newspaper) : ?>
                                 <?php echo "<option value = '" . $newspaper->getId() . "'>" . $this->escapeHtml($newspaper->getName()) . "</option>"; ?>
                             <?php endforeach; ?>
@@ -192,7 +193,7 @@ $relationships = $this->getRelationships();
     
     function jsonToOption(data) {
         var text = "";
-        text += "<option value=''><?php echo $this->__("Please select"); ?></option>";        
+        text += "<option value=''><?php echo $this->__("Scegli..."); ?></option>";        
         for (var prop in data) {
             if (!data.hasOwnProperty(prop)) {
                 continue;
@@ -212,7 +213,7 @@ $relationships = $this->getRelationships();
     function loadRelease() {
         var newspaper = $j(newspaperElement).val();
         if((newspaper.trim()).length < 1) {
-            $j(releaseElement).html("<option value=''><?php echo $this->__("Please select..."); ?></option>");        
+            $j(releaseElement).html("<option value=''><?php echo $this->__("Scegli..."); ?></option>");        
             return false;
         }
         $j(releaseElement).html("<option value=''><?php echo $this->__("Loading..."); ?></option>");        
@@ -228,7 +229,7 @@ $relationships = $this->getRelationships();
     function loadSection() {
         var release = $j(releaseElement).val();
         if((release.trim()).length < 1) {
-            $j(sectionElement).html("<option value=''><?php echo $this->__("Please select..."); ?></option>");        
+            $j(sectionElement).html("<option value=''><?php echo $this->__("Scegli..."); ?></option>");        
             return false;
         }
         $j.post("<?php echo Mage::getUrl('newspaper/form/getNewspaperReleaseSection'); ?>", {
@@ -242,7 +243,7 @@ $relationships = $this->getRelationships();
     var loadReleaseSectionModel =function() {        
         var section = $j(sectionElement).val();
         if((section.trim()).length < 1) {
-            $j(releaseSectionModelElement).html("<option value=''><?php echo $this->__("Please select..."); ?></option>");        
+            $j(releaseSectionModelElement).html("<option value=''><?php echo $this->__("Scegli..."); ?></option>");        
             return false;
         }
         $j.post("<?php echo Mage::getUrl('newspaper/form/getNewspaperReleaseSectionModel'); ?>", {            

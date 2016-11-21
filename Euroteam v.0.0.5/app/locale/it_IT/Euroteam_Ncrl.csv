@@ -1,68 +1,75 @@
-Euroteam,Euroteam
+Euroteam,Editing Necrologie
 Add New,Aggiungi Nuovo
-Add Item,Aggiungi Item
-Manage Fields,Gestisci Fields
-Manage Models,Gestisci Models
-Manage Models - Fields,Gestisci Models - Fields
-Manage Newspaper List,Gestisci Newspaper List
-Manage Newspaper Release,Gestisci Newspaper Release
-Manage Newspaper Section,Gestisci Newspaper Section
-Manage Newspaper Release Section Model,Gestisci Newspaper Release Section Model
+Add Item,Aggiungi elemento
+Manage Fields,Gestione Campi Annunci
+Manage Models,Gestione Modelli Annunci
+Manage Models - Fields,Gestione Campi Modelli
+Manage Newspaper List,Gestione Testate
+Manage Newspaper Release,Gestione Edizioni
+Manage Newspaper Section,Gestione Rubriche
+Manage Newspaper Release Section Model,Gestione Abbinamento Modelli/Rubriche
 Edit,Edita
 ID,ID
 Name,Nome
-Item Detail,Item Dettagli
-Field Detail,Field Dettagli
-Model Detail,Model Dettagli
-Release Detail,Release Dettagli
-Decuius Detail,Decuius Dettagli
-Relationship Detail,Relationship Dettagli
-Main,Main
+Item Detail,Dettagli elemento
+Field Detail,Dettagli Campo
+Model Detail,Dettagli Modello
+Release Detail,Dettagli Edizione
+Decuius Detail,Dettagli Defunto
+Relationship Detail,Dettagli Gradi di Parentela
+Main,Generale
 Back,Indietro
 Reset,Reset
 Delete,Cancella
 Save,Salva
-Save And Continue Edit,Sala E Continua a Editare
-Item has been saved,Item e stato salvato
-Item has been successfully deleted,Item e stato cancellato
+Save And Continue Edit,Salva e Continua
+Item has been saved,Elemento salvato
+Item has been successfully deleted,Elemento correttamente salvato
 Page,Pagina
 of %s pages,di %s pagine
 View,Vedi
 per page,per pagina
 Total %d records found,Totale %d records trovati
-No records found.,No records trovati.
+No records found.,Nessun record trovato.
 Reset Filter,Reset Filtro
 Search,Cerca
 Action,Azione
-Field,Field
-Fields,Fields
-Model,Model
-Models,Models
-Models-Fields,Models-Fields
-Newspaper List,Newspaper List
-Newspaper Release,Newspaper Release
-Newspaper Section,Newspaper Section
-Release Section Model,Release Section Model
-Available,Available
-Style,Style
-Mandatory,Mandatory
-Weight,Weight
-Minimum Weight,Minimum Weight
-Price,Price
-Are you sure you want to do this?,Are you sure you want to do this?
-Status,Status
-Active,Active
-Inactive,Inactive
-Newspaper,Newspaper
-Frequency,Frequency
-Time Limit,Time Limit
-Section,Section
-Release,Release
-Release Section,Release Section
-Decuius,Decuius
-Relationship,Relationship
-Surname,Surname
-Date Created,Date Created
-From,From
-To,To
+Field,Campo Annuncio
+Fields,Campi Annunci
+Model,Modello Annuncio
+Models,Modelli Annunci
+Models-Fields,Campi Modelli
+Newspaper List,Testate
+Newspaper Release,Edizioni
+Newspaper Section,Rubriche
+Release Section Model,Abbinamento Modelli/Rubriche
+Available,Disponibile
+Style,Stile
+Mandatory,Obbligatorio
+Weight,Peso
+Minimum Weight,Peso minimo
+Price,Prezzo
+Are you sure you want to do this?,Sicuro di voler procedere?
+Status,Stato
+Active,Attivo
+Inactive,Inattivo
+Newspaper,Testata
+Frequency,Frequenza
+Time Limit,Tempo Limite
+Section,Rubrica
+Release,Edizione
+Release Section,Rubrica
+Decuius,Defunti
+Relationship,Gradi di Parentela
+Surname,Cognome
+Date Created,Data Creazione
+From,Dal
+To,Al
 Rank,Rank
+Section Detail,Dettagli Rubrica
+Edit Item,Modifica elemento
+Edit,Modifica
+Item,elemento
+Model Style Detail,Dettagli Stile Modelli
+Model Styles,Stile Modelli
+Manage Model Styles,Gestione Stile Modelli

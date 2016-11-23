@@ -50,6 +50,7 @@ class Euroteam_Ncrl_Block_Adminhtml_Decuius_Grid extends Mage_Adminhtml_Block_Wi
             'header' => Mage::helper('newspaper')->__('Date Created'),
             'type' => 'datetime',
             'index' => 'created',
+            'format' => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM), 
             'filter_index' => 'created',
         ));
 

@@ -56,7 +56,9 @@ class Euroteam_Ncrl_Adminhtml_Ncrl_DecuiusController extends Mage_Adminhtml_Cont
         } else {
             $model = Mage::getModel('newspaper/decuius');
         }
-
+        
+        $objDate = DateTime::createFromFormat("d/m/Y", $param['created']);
+        $param['created'] = $objDate->format("Y-m-d");
         $model->addData($param);
 
         try {

@@ -16,7 +16,7 @@ $j(document).ready(function () {
     /* -------------------------------------------- */
 
 
-    
+
     /*fillselect($j('#defunto'), defunto);*/
 
     $j("#tipoannunciosfondo1").change(function () {
@@ -68,69 +68,69 @@ $j(document).ready(function () {
             $j(".preview.finale").css("background-color", "#dddddd")
         }
     })
-    
-    
-    var checkValidation = function(element) {        
+
+
+    var checkValidation = function (element) {
         var tabelements = $j(element).find(':input');
         var passed = true;
-        tabelements.each(function() {                           
-            if(Validation.validate($(this.id)) === false) {
+        tabelements.each(function () {
+            if (Validation.validate($(this.id)) === false) {
                 passed = false;
             }
         });
         return passed;
     }
-    
-    $j('#rootwizard').bootstrapWizard({onNext: function (tab, navigation, index) {            
-            
-            if(checkValidation("#tab"+index) === false) {
+
+    $j('#rootwizard').bootstrapWizard({onNext: function (tab, navigation, index) {
+            console.log(index)
+            if (checkValidation("#tab" + index) === false) {
                 return false;
             }
-            
-            switch(index) {
+
+            switch (index) {
                 case 1:
                     var selectedDate = $j("#tab1 #date").val();
                     $j("#resumeWrapperValue\\:date").html(selectedDate);
-                    
+
                     var selectedNewspaper = $j("#tab1 #testata").val();
                     var selectedNewspaperText = $j("#tab1 #testata").find(":selected").text();
                     $j("#resumeWrapperValue\\:newspaper").html(selectedNewspaperText);
-                    
+
                     var selectedEdition = $j("#tab1 #edizione").val();
                     var selectedEditionText = $j("#tab1 #edizione").find(":selected").text();
                     $j("#resumeWrapperValue\\:newspaper_edition").html(selectedEditionText);
-                    
+
                     var selectedSection = $j("#tab1 #rubrica").val();
                     var selectedSectionText = $j("#tab1 #rubrica").find(":selected").text();
-                    $j("#resumeWrapperValue\\:newspaper_section").html(selectedSectionText);                    
-                    
+                    $j("#resumeWrapperValue\\:newspaper_section").html(selectedSectionText);
+
                     break;
                 case 2:
-                    
+
                     var selectedFirstName = $j("#tab2 #nomedef").val();
                     var selectedLastName = $j("#tab2 #cognomedef").val();
-                    $j("#resumeWrapperValue\\:decuius").html(selectedFirstName + " " + selectedLastName);                    
-                    
+                    $j("#resumeWrapperValue\\:decuius").html(selectedFirstName + " " + selectedLastName);
+
                     var selectedRelationship = $j("#tab2 #gradopar").val();
                     var selectedRelationshipText = $j("#tab2 #gradopar").find(":selected").text();
-                    $j("#resumeWrapperValue\\:relationship").html(selectedRelationshipText);                    
+                    $j("#resumeWrapperValue\\:relationship").html(selectedRelationshipText);
                     break;
                 case 3:
                     var selectedModel = $j("#tab3 #tipoannuncio").val();
                     var selectedModelText = $j("#tab3 #tipoannuncio").find(":selected").text();
-                    $j("#resumeWrapperValue\\:model").html(selectedModelText);                    
-                    
+                    $j("#resumeWrapperValue\\:model").html(selectedModelText);
+
                     var selectedStyleText = $j(".style-image-item:checked").parent().last().text().trim();
-                    $j("#resumeWrapperValue\\:model_style").html(selectedStyleText);   
-                    
+                    $j("#resumeWrapperValue\\:model_style").html(selectedStyleText);
+
                     break;
                 case 4:
                     break;
                 case 5:
-                    break;                
-                    
+                    break;
+
             }
-            
+
             if (index == 2) {
                 // Make sure we entered the name
                 /*if(!$j('#name').val()) {
@@ -148,8 +148,22 @@ $j(document).ready(function () {
             var $jcurrent = index + 1;
             var $jpercent = ($jcurrent / $jtotal) * 100;
             $j('#rootwizard .progress-bar').css({width: $jpercent + '%'});
-        }});
-    window.prettyPrint && prettyPrint()
+        }, onTabClick: function (tab, navigation, index, clicked) {
+            if (clicked > index) {
+                if (clicked - index == 1) {
+                    if (checkValidation("#tab" + (index + 1)) === false) {
+                        return false;
+                    }
+                    return true;
+                } 
+                return false;
+            }
+            return true;
+        }
+
+    });
+
+    window.prettyPrint && prettyPrint();
 
     /* -------------------------------------------- */
 
@@ -161,7 +175,7 @@ $j(document).ready(function () {
             myselect.append('<option value=' + key + '>' + value + '</option>');
         });
     }
-   
+
     function countparole(campo, prezzo) {
         if (!$j(campo).val()) {
             $j(campo + "-words").text(numwords);
@@ -192,9 +206,6 @@ $j(document).ready(function () {
         //console.log("totale: "+totale);
         $j("#prezzototale").text(totale.toFixed(2));
     }
-
-
-
 
 
 });

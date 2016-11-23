@@ -350,7 +350,7 @@ $decuius = $this->getDecuius();
 
     $j("#tab2 #defunto").change(function() {        
         var firstName = $j("#defunto option:selected").data('first');
-        var lastName = $j("#defunto option:selected").data('first');
+        var lastName = $j("#defunto option:selected").data('last');
         $j("#tab2 #nomedef").val(firstName);
         $j("#tab2 #cognomedef").val(lastName);
 

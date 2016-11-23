@@ -72,7 +72,7 @@ class Euroteam_Ncrl_FormController extends Mage_Core_Controller_Front_Action
                     <div class="col-md-6">
                         <div class="radio">
                             <label style="min-height: 40px;">
-                                <input type="radio" class="style-image-item" name="tipoannuncio" id="tipoannuncio:' . $item->getId() . '" value="' . $item->getId() . '">
+                                <input type="radio" class="style-image-item validate-one-required-by-name" name="tipoannuncio" id="tipoannuncio:' . $item->getId() . '" value="' . $item->getId() . '">
                                 ' . $item->getName() . '
                             </label>
                         </div>

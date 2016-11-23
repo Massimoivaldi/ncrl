@@ -6,34 +6,34 @@ $newspapers = $this->getNewspapers();
 $relationships = $this->getRelationships();
 $decuius = $this->getDecuius();
 ?>
-<form action="<?php echo Mage::getUrl('newspaper/checkout_cart/addToCart');?>" method="post" enctype="multipart/form-data" id="ads-form">
-<section id="wizard">
-    <div id="rootwizard">
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <ul>
-                        <li><a href="#tab1" data-toggle="tab">Dove Pubblicare</a></li>
-                        <li><a href="#tab2" data-toggle="tab">Dati del defunto</a></li>
-                        <li><a href="#tab3" data-toggle="tab">Tipo di Annuncio</a></li>
-                        <li><a href="#tab4" data-toggle="tab">Compilazione Annuncio</a></li>
-                        <li><a href="#tab5" data-toggle="tab" id="riepilogo">Riepilogo</a></li>
-                        <!---
-                        <li><a href="#tab6" data-toggle="tab" style='visibility:hidden'>Invio dati</a></li>
-                        <li><a href="#tab6" data-toggle="tab">Sixth</a></li>
-                        <li><a href="#tab7" data-toggle="tab">Seventh</a></li>
-                        -->
-                    </ul>
+<form action="<?php echo Mage::getUrl('newspaper/checkout_cart/addToCart'); ?>" method="post" enctype="multipart/form-data" id="ads-form">
+    <section id="wizard">
+        <div id="rootwizard">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul>
+                            <li><a href="#tab1" data-toggle="tab">Dove Pubblicare</a></li>
+                            <li><a href="#tab2" data-toggle="tab">Dati del defunto</a></li>
+                            <li><a href="#tab3" data-toggle="tab">Tipo di Annuncio</a></li>
+                            <li><a href="#tab4" data-toggle="tab">Compilazione Annuncio</a></li>
+                            <li><a href="#tab5" data-toggle="tab" id="riepilogo">Riepilogo</a></li>                            
+                            <!---
+                            <li><a href="#tab6" data-toggle="tab" style='visibility:hidden'>Invio dati</a></li>
+                            <li><a href="#tab6" data-toggle="tab">Sixth</a></li>
+                            <li><a href="#tab7" data-toggle="tab">Seventh</a></li>
+                            -->
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="bar" class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
-        </div>
-        <div class="tab-content">
-            <div class="tab-pane" id="tab1">
-                
-                    <div class="form-group">
+            <div id="bar" class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane" id="tab1">
+
+                    <div class="form-group">                        
                         <label for="testata">Scegli Testata</label>
                         <select id="testata" name="newspaper" class="form-control validate-select">
                             <option value=""><?php echo $this->__('Scegli Testata');?></option>
@@ -54,74 +54,74 @@ $decuius = $this->getDecuius();
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="data">Scegli Data</label>
-                        <input type="text" class="form-control required-entry" id="date"  name="date" value="21-11-2016">
+                        <label for="date">Scegli Data</label>
+                        <input type="text" class="form-control required-entry" id="date"  name="date" value="<?php echo date("m-d-Y");?>">                        
                     </div>
-            </div>
-            <div class="tab-pane" id="tab2">
-                <div class="form-group">
-                    <label for="gradopar">Grado di parentela</label>
-                    <select id="gradopar" name="relationship" class="form-control validate-select">
-                        <?php foreach ($relationships as $relationship) : ?>
-                           <?php echo "<option value = '" . $relationship->getId() . "'>" . $this->escapeHtml($relationship->getName()) . "</option>"; ?>
-                        <?php endforeach; ?>
-                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="defunto">Ricerca Nome del Defunto</label>
-                    <select id="defunto" name="prefill_name" class="form-control validate-select">
-                        <option value=""></option>
-                        <?php foreach ($decuius as $decuiu) : ?>
-                                <?php echo "<option value = '" . $decuiu->getId() . "'>" . $this->escapeHtml($decuiu->getName()) . " " .$this->escapeHtml($decuiu->getSurname()). "</option>"; ?>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="nomedef">Nome del Defunto</label>
-                            <input type="text" class="form-control required-entry" id="nomedef" name="first_name" >
+                <div class="tab-pane" id="tab2">
+                    <div class="form-group">
+                        <label for="gradopar">Grado di parentela</label>
+                        <select id="gradopar" name="relationship" class="form-control validate-select">
+                            <?php foreach ($relationships as $relationship) : ?>
+                                <?php echo "<option value = '" . $relationship->getId() . "'>" . $this->escapeHtml($relationship->getName()) . "</option>"; ?>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="defunto">Ricerca Nome del Defunto</label>
+                        <select id="defunto" name="prefill_name" class="form-control validate-select">
+                             <option value=""></option>
+                                <?php foreach ($decuius as $decuiu) : ?>
+                                        <?php echo "<option data-first='" .$this->escapeHtml($decuiu->getName()) ."' data-last='" .$this->escapeHtml($decuiu->getSurname()) ."'  value = '" . $decuiu->getId() . "'>" . $this->escapeHtml($decuiu->getName()) . " " .$this->escapeHtml($decuiu->getSurname()). "</option>"; ?>
+                                <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="nomedef">Nome del Defunto</label>
+                                <input type="text" class="form-control required-entry" id="nomedef" name="first_name" >
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="cognomedef">Cognome del Defunto</label>
-                            <input type="text" class="form-control" id="cognomedef"  name="last_name" >
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="tab3">
-                <div class="form-group">
-                    <label for="tipoannuncio">Tipo di Annuncio</label>
-                    <select id="tipoannuncio" name="section_model" class="form-control validate-select"> 
-                    </select>
-                </div>
-                <div  id="style-image" class="row giac">
-                </div>
-            </div>
-            <div class="tab-pane" id="tab4">
-                <div class="row">
-                    <div class="col-md-8" id="tab4-fields">
-                    </div>	
-                    <div class="col-md-4" id="tab4-preview">
-                        <label for="niente" class="fondinoverde">Anteprima annuncio</label>
-                        <div class="form-group preview finale">                           
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="cognomedef">Cognome del Defunto</label>
+                                <input type="text" class="form-control required-entry" id="cognomedef"  name="last_name" >
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane" id="tab5">
-                <div class="row">
-                    <div class="col-md-4" id="tab5-preview">
-                        <label for="niente" class="fondinoverde">Anteprima annuncio</label>
-                        <div class="form-group preview finale">                            
+                <div class="tab-pane" id="tab3">
+                    <div class="form-group">
+                        <label for="tipoannuncio">Tipo di Annuncio</label>
+                        <select id="tipoannuncio" name="section_model" class="form-control validate-select"> 
+                        </select>
+                    </div>
+                    <div  id="style-image" class="row giac">
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab4">
+                    <div class="row">
+                        <div class="col-md-8" id="tab4-fields">
+                        </div>	
+                        <div class="col-md-4" id="tab4-preview">
+                            <label for="niente" class="fondinoverde">Anteprima annuncio</label>
+                            <div class="form-group preview finale">                           
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-8">
-                        <h3>Riepilogo:</h3>
-                        <div id="resume">                            
-                            <p style="" id="resumeWrapper:date">Data : <strong><span id="resumeWrapperValue:date" class="resumeWrapperValue"></span></strong></p>
+                </div>
+                <div class="tab-pane" id="tab5">
+                    <div class="row">
+                        <div class="col-md-4" id="tab5-preview">
+                            <label for="niente" class="fondinoverde">Anteprima annuncio</label>
+                            <div class="form-group preview finale">                            
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h3>Riepilogo:</h3>
+                            <div id="resume">                            
+                                <p style="" id="resumeWrapper:date">Data : <strong><span id="resumeWrapperValue:date" class="resumeWrapperValue"></span></strong></p>
                             <p style="" id="resumeWrapper:newspaper">Testata : <strong><span id="resumeWrapperValue:newspaper" class="resumeWrapperValue"></span></strong></p>
                             <p style="" id="resumeWrapper:newspaper_edition">Edizione: <strong><span id="resumeWrapperValue:newspaper_edition" class="resumeWrapperValue"></span></strong></p>
                             <p style="" id="resumeWrapper:newspaper_section">Rubrica: <strong><span id="resumeWrapperValue:newspaper_section" class="resumeWrapperValue"></span></strong></p>
@@ -129,50 +129,50 @@ $decuius = $this->getDecuius();
                             <p style="" id="resumeWrapper:model_style">Stile: <strong><span id="resumeWrapperValue:model_style" class="resumeWrapperValue"></span></strong></p>
                             <p style="" id="resumeWrapper:relationship">Parentela: <strong><span id="resumeWrapperValue:relationship" class="resumeWrapperValue"></span></strong></p>
                             <p style="" id="resumeWrapper:decuius">Nome Defunto: <strong><span id="resumeWrapperValue:decuius" class="resumeWrapperValue"></span></strong></p>
-                        </div>
-                        <div id="total-wrapper"> 
-                        </div>
-                        <h3>Prezzo totale: <b><span id="prezzototale">0</span></b> &euro;</h3>
-                        <button id="bottonefinale" type="submit" class="btn btn-default" style="margin-top:25px;">Conferma e Prosegui</button>
-                        
-                    </div>
-                </div>
-                
-            </div>
-            
-            <!--- 
-            <div class="tab-pane" id="tab6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Invio dati al sistema
-                                </h3>
                             </div>
-                            <div class="panel-body">
+                            <div id="total-wrapper"> 
+                            </div>
+                            <h3>Prezzo totale: <b><span id="prezzototale">0</span></b> &euro;</h3>
+                            <button id="bottonefinale" type="submit" class="btn btn-default" style="margin-top:25px;">Conferma e Prosegui</button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            <!--- 
+                <div class="tab-pane" id="tab6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Invio dati al sistema
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
                                     La procedura crea un prodotto pragmaticamente e lo invia al carrello di Magento.<br>
                                     Si rimanda quindi al componente Gigya il login dell'utente, che reputiamo a questo punto
                                     sia meglio effettuare in fase di check-out.
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             
-                <div class="tab-pane" id="tab7">
-                        
+                    <div class="tab-pane" id="tab7">
+                            
+                </div>
+                -->
+                <ul class="pager wizard">
+                    <li class="previous first" style="display:none;"><a href="javascript:;">Inizio</a></li>
+                    <li class="previous"><a href="javascript:;">Precedente</a></li>
+                    <li class="next last" style="display:none;"><a href="javascript:;">Fine</a></li>
+                    <li class="next"><a href="javascript:;">Successivo</a></li>
+                </ul>
             </div>
-            -->
-            <ul class="pager wizard">
-                <li class="previous first" style="display:none;"><a href="javascript:;">Inizio</a></li>
-                <li class="previous"><a href="javascript:;">Precedente</a></li>
-                <li class="next last" style="display:none;"><a href="javascript:;">Fine</a></li>
-                <li class="next"><a href="javascript:;">Successivo</a></li>
-            </ul>
         </div>
-    </div>
-    </form>
+</form>
 </section>
 
 <br /><br />
@@ -186,12 +186,12 @@ $decuius = $this->getDecuius();
     var sectionElement = "#rubrica";
     var relationshipElement = "#gradopar";
     var releaseSectionModelElement = "#tipoannuncio";
-    var modelStyleElement = "#style-image";    
+    var modelStyleElement = "#style-image";
     var styleImageItem = modelStyleElement + " .style-image-item";
     var tab4Fields = "#tab4 #tab4-fields";
     var tab4Preview = "#tab4 #tab4-preview .preview.finale";
     var tab5Preview = "#tab5 #tab5-preview .preview.finale";
-    
+
     function jsonToOption(data) {
         var text = "";
         text += "<option value=''><?php echo $this->__("Scegli..."); ?></option>";        
@@ -207,7 +207,7 @@ $decuius = $this->getDecuius();
                 text += "<option value=\'" + prop + "\'>" + label + "</option>";
             }
 
-        }        
+        }
         return text;
     }
 
@@ -217,16 +217,16 @@ $decuius = $this->getDecuius();
             $j(releaseElement).html("<option value=''><?php echo $this->__("Scegli..."); ?></option>");        
             return false;
         }
-        $j(releaseElement).html("<option value=''><?php echo $this->__("Loading..."); ?></option>");        
+        $j(releaseElement).html("<option value=''><?php echo $this->__("Loading..."); ?></option>");
         $j.post("<?php echo Mage::getUrl('newspaper/form/getNewspaperRelease'); ?>", {
             newspaper: newspaper
-        }, function (data, status) {        
-            var json = JSON.parse(data);    
+        }, function (data, status) {
+            var json = JSON.parse(data);
             $j(releaseElement).html(jsonToOption(json));
             loadSection();
         });
     }
-    
+
     function loadSection() {
         var release = $j(releaseElement).val();
         if((release.trim()).length < 1) {
@@ -235,44 +235,44 @@ $decuius = $this->getDecuius();
         }
         $j.post("<?php echo Mage::getUrl('newspaper/form/getNewspaperReleaseSection'); ?>", {
             release: release
-        }, function (data, status) {        
-            var json = JSON.parse(data);    
+        }, function (data, status) {
+            var json = JSON.parse(data);
             $j(sectionElement).html(jsonToOption(json));
         });
     }
-    
+
     var loadReleaseSectionModel =function() {        
         var section = $j(sectionElement).val();
         if((section.trim()).length < 1) {
             $j(releaseSectionModelElement).html("<option value=''><?php echo $this->__("Scegli..."); ?></option>");        
             return false;
         }
-        $j.post("<?php echo Mage::getUrl('newspaper/form/getNewspaperReleaseSectionModel'); ?>", {            
+        $j.post("<?php echo Mage::getUrl('newspaper/form/getNewspaperReleaseSectionModel'); ?>", {
             section : section
-        }, function (data, status) {        
-            var json = JSON.parse(data);    
+        }, function (data, status) {
+            var json = JSON.parse(data);
             $j(releaseSectionModelElement).html(jsonToOption(json));
         });
     }
-    
+
     var loadModelStyle =function() {
-        var releaseSectionModel = $j(releaseSectionModelElement).val();        
+        var releaseSectionModel = $j(releaseSectionModelElement).val();
         if((releaseSectionModel.trim()).length < 1) {
             $j(modelStyleElement).html("");
             return false;
         }
-        $j.post("<?php echo Mage::getUrl('newspaper/form/getModelStyle'); ?>", {            
+        $j.post("<?php echo Mage::getUrl('newspaper/form/getModelStyle'); ?>", {
             section_model : releaseSectionModel
-        }, function (data, status) {                    
+        }, function (data, status) {
             $j(modelStyleElement).html(data);
             $j(styleImageItem).change(loadFieldsByStyle);
         });
     };
-    
+
     var detectFieldEntry = function(e) {        
         var id = $j(e.target).data('id');
-        var stt = e.target.value.replace(/\r\n|\r|\n/g, "<br />");        
-        
+        var stt = e.target.value.replace(/\r\n|\r|\n/g, "<br />");
+
         previewElement = tab4Preview + " #modelFieldPreview\\:" + id;
         finalPreviewElement = tab5Preview + " #modelFieldFinalPreview\\:" + id;
         $j(previewElement).html(stt);
@@ -280,12 +280,12 @@ $decuius = $this->getDecuius();
         countWords(e.target);
         //countparole("#citazione", 9.90);
     }
-    
+
     var loadFieldsByStyle = function() {
         var selectedStyle = $j(styleImageItem+":checked").val();
-        $j.post("<?php echo Mage::getUrl('newspaper/form/getModelField'); ?>", {            
+        $j.post("<?php echo Mage::getUrl('newspaper/form/getModelField'); ?>", {
             style : selectedStyle
-        }, function (data, status) {         
+        }, function (data, status) {
             var result = JSON.parse(data);
             $j(tab4Fields).html(result.fields);
             $j(tab4Preview).html(result.preview);
@@ -294,41 +294,41 @@ $decuius = $this->getDecuius();
             $j(".modelField").bind('input propertychange', detectFieldEntry);
         });
     };
-    
+
     var calculateTotal = function() {
         var finalfieldprice = $j(".finalFieldPrice");
         var grandtotal = 0;
         finalfieldprice.each(function() {
-           grandtotal += parseFloat(this.innerHTML);
+            grandtotal += parseFloat(this.innerHTML);
         });
-        
+
         $j("#prezzototale").html(grandtotal);
     }
-    
+
     var countWords = function(element) {
         elementId = $j(element).data('id');
         elementPrice = parseFloat($j(element).data('price'));
         elementWeight = parseFloat($j(element).data('weight'));
         elementMinWeight = parseFloat($j(element).data('minweight'));
-        
-        
-        
+
+
+
         var fieldvalue = $j(element).val();
         fieldvalue = fieldvalue.replace(/ +(?= )/g,'');
-        var words = fieldvalue.trim().split(' ');        
+        var words = fieldvalue.trim().split(' ');
         var numwords = words.length;
-        
+
         if(fieldvalue.trim() < 1) {
             numwords = 0;
         }
-        
+
         var totalWeight = numwords * elementWeight;
         if(totalWeight  < elementMinWeight) {
             totalWeight = elementMinWeight;
         }
-        
+
         var finalprice = totalWeight * elementPrice;
-               
+
         $j("#tab5 #finalFieldWords\\:"+elementId).html(numwords);
         $j("#tab5 #finalFieldPrice\\:"+elementId).html(finalprice.toFixed(2));        
         if(numwords == 0) {
@@ -336,38 +336,38 @@ $decuius = $this->getDecuius();
         } else {
             $j("#tab5 #finalFieldWrapper\\:"+elementId).show();
         }
-        
+
         calculateTotal();
     };
-        
+
 
     $j(newspaperElement).change(loadRelease);
     $j(releaseElement).change(loadSection);
     $j(sectionElement).change(loadReleaseSectionModel);
     $j(releaseSectionModelElement).change(loadModelStyle);
-    
+
     $j(styleImageItem).change(loadFieldsByStyle);
-    
-    $j("#tab2 #defunto").change(function() {
-      var prefillText = $j("#tab2 #defunto").find(":selected").text();
-      var prefillNames = prefillText.split(" ");
-      var firstName = "";
-      var lastName = "";
-      for (var i = 0, len = prefillNames.length; i < len; i++) {
-          if(i == 0) {
-              firstName = prefillNames[i];
-          } else {
-              lastName += prefillNames[i];
-          }        
-      }
-      
-      $j("#tab2 #nomedef").val(firstName);
-      $j("#tab2 #cognomedef").val(lastName);
-      
+
+    $j("#tab2 #defunto").change(function() {        
+        var firstName = $j("#defunto option:selected").data('first');
+        var lastName = $j("#defunto option:selected").data('last');
+        $j("#tab2 #nomedef").val(firstName);
+        $j("#tab2 #cognomedef").val(lastName);
+
     });
-    
-    $j(function() {
+
+    $j(function () {
         loadRelease();
+        $j("#date").datepicker({
+            showOn: "button",
+            buttonImage: "<?php echo $this->getSkinUrl();?>images/calendar.gif",
+            buttonImageOnly: true,
+            buttonText: "Select date"
+        });
+        
+        $j('#date').focus(function(){
+            $j('#date').datepicker('show');
+        });
     });
 
 

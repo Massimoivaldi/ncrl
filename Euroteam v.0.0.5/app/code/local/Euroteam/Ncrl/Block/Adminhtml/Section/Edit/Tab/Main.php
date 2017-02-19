@@ -23,9 +23,12 @@ class Euroteam_Ncrl_Block_Adminhtml_Section_Edit_Tab_Main extends Mage_Adminhtml
         ));
 
         $release = Mage::getModel('newspaper/release')->getCollection();
+        $release->getSelect()
+                ->joinLeft(array('newspaper' => 'newspaper'), "main_table.id_newspaper = newspaper.id", array('newspaper_name' => 'newspaper.name'));
+        
         $releaseArray = array();
-        foreach ($release as $item) {
-            $releaseArray[$item->getId()] = $item->getName();
+        foreach ($release as $item) {            
+            $releaseArray[$item->getId()] = $item->getNewspaperName() . " - " . $item->getName();
         }
 
         $fieldset->addField('id_newspaper_release', 'select', array(

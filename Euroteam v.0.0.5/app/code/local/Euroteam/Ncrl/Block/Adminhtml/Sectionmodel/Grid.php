@@ -20,7 +20,10 @@ class Euroteam_Ncrl_Block_Adminhtml_Sectionmodel_Grid extends Mage_Adminhtml_Blo
         $collection = Mage::getModel('newspaper/sectionmodel')->getCollection();
         $collection->getSelect()
                 ->joinLeft(array('section' => 'newspaper_release_section'), "main_table.id_newspaper_release_section = section.id", array('section_name' => 'section.name'))
+                ->joinLeft(array('release' => 'newspaper_release'), "section.id_newspaper_release = release.id", array('release_name' => 'release.name'))
+                ->joinLeft(array('newspaper' => 'newspaper'), "release.id_newspaper = newspaper.id", array('newspaper_name' => 'newspaper.name'))
                 ->joinLeft(array('model' => 'ncrl_model'), "main_table.id_ncrl_model = model.id", array('model_name' => 'model.name'));
+        //echo $collection->getSelect(); die();
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
@@ -39,6 +42,7 @@ class Euroteam_Ncrl_Block_Adminhtml_Sectionmodel_Grid extends Mage_Adminhtml_Blo
             'type' => 'text',
             'index' => 'section_name',
             'filter_index' => 'section.name',
+            'renderer' => 'Euroteam_Ncrl_Block_Adminhtml_Template_Grid_Renderer_SectionModelParent'
         ));
         
         

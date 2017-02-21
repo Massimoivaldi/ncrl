@@ -17,9 +17,13 @@ class Euroteam_Ncrl_Block_Adminhtml_Sectionmodel_Edit_Tab_Main extends Mage_Admi
         }
 
         $section = Mage::getModel('newspaper/section')->getCollection();
+        $section->getSelect()->joinLeft(array('release' => 'newspaper_release'), "main_table.id_newspaper_release = release.id", array('release_name' => 'release.name'))
+                ->joinLeft(array('newspaper' => 'newspaper'), "release.id_newspaper = newspaper.id", array('newspaper_name' => 'newspaper.name'));
+        
+        //echo $section->getSelect(); die();
         $sectionArray = array();
         foreach ($section as $item) {
-            $sectionArray[$item->getId()] = $item->getName();
+            $sectionArray[$item->getId()] = $item->getNewspaperName() . " - " . $item->getReleaseName() . " - " . $item->getName();            
         }
 
         $fieldset->addField('id_newspaper_release_section', 'select', array(

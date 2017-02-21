@@ -48,7 +48,7 @@ class Euroteam_Ncrl_Block_Adminhtml_Model_Grid extends Mage_Adminhtml_Block_Widg
             'actions' => array(
                 array(
                     'caption' => Mage::helper('newspaper')->__('Edit'),
-                    'url' => Mage::helper('adminhtml')->getUrl('adminhtml/ncrl_field/edit', array('id' => '$id'))
+                    'url' => Mage::helper('adminhtml')->getUrl('adminhtml/ncrl_model/edit', array('id' => '$id'))
                 ),
             ),
         ));
